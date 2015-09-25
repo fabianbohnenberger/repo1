@@ -1,0 +1,79 @@
+---
+title: "USJudges_RMarkdown"
+author: "fabianbohnenberger"
+date: "25. September 2015"
+output: html_document
+---
+
+## Aim
+
+The aim of this doccument is to develop a weighted index of Judge's performance based on R's **"USJudgeRatings"** database. The dataset contains lawyers' ratings of State Judges in the US Superior Court. Additional information on the dataset can be found here: <https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USJudgeRatings.html>
+
+Data on four variables will be used: 
+
+|variable| abbreviation|
+|------|---|
+|*Judicial integrity* | INTG|
+|*Preparation for trial* | PREP|
+|*Sound oral rulings* | ORAL|
+|*Physical ability* | PHYS|
+
+##Descriptive Statistics 
+```{r, echo=FALSE}
+summary(USJudgeRatings)
+```
+
+judgerating <- USJudgeRatings
+
+
+##Creating a weighted index
+
+
+```{r, echo=FALSE}
+#assigning observations to objects ($ = "component selector") 
+x1 <- USJudgeRatings$INTG
+x2 <- USJudgeRatings$PREP
+x3 <- USJudgeRatings$ORAL
+x4 <- USJudgeRatings$PHYS
+```
+
+###Defining weights for the Index
+```{r}
+#defining weights for index
+w1 <- 0.25
+w2 <- 0.25
+w3 <- 0.25
+w4 <- 0.25
+```
+
+###Creating function for weighted Index
+r identifies the row/Judge
+```{r}
+weighted_index <- function(r){
+  x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
+}
+``` 
+
+```{r, echo=FALSE}
+#adjusting Index to deal with numbers for r other than integers between 1 and 43
+weighted_index <- function(r){
+  if(1 <= r && r <= 43 && r == as.integer(r)){
+    x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
+  } 
+  else{
+    print("Judge does not exist")
+  }
+}
+
+
+```
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+---
