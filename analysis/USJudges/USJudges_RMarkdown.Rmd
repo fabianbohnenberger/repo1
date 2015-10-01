@@ -1,9 +1,10 @@
 ---
 title: "USJudges_RMarkdown"
 author: "fabianbohnenberger"
-date: "25. September 2015"
+date: "25 September 2015"
 output: html_document
 ---
+
 
 ## Aim
 
@@ -18,10 +19,25 @@ Data on four variables will be used:
 |*Sound oral rulings* | ORAL|
 |*Physical ability* | PHYS|
 
+
+##Setting working directory 
+```{r}
+setwd("C:/Users/Fabian/Documents/GitHub/repo1/analysis/USJudges")
+
+list.files()
+```
+
+
+
 ##Descriptive Statistics 
 ```{r, echo=FALSE}
-summary(USJudgeRatings)
+
+source('R_files/USJudges_DescriptiveStats.R')
+
+
 ```
+
+
 
 judgerating <- USJudgeRatings
 
@@ -66,7 +82,19 @@ weighted_index <- function(r){
 }
 
 
+
+# use source command here 
 ```
+
+```{r}
+###Results 
+#The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.
+```
+
+
+#using the Index for Judge in row 1
+weighted_index(1)
+weighted_index(1:43) #for all Judges
 
 
 You can also embed plots, for example:
@@ -77,3 +105,4 @@ plot(cars)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 ---
+
