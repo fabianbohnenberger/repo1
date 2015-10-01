@@ -64,14 +64,31 @@ As an additional analysis, a map is introduced to show how the arrests are distr
 
 
 
-## Slide with Map code
+## Creating a Map
 ```{r}
 states <- readOGR("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests/", "states")
 states_df <- fortify(states)
-map <- ggplot() + geom_path(data = states_df, aes(x = long, y = lat, group = group), color = 'white', fill = 'gray', size = .2)
+map <- ggplot() + geom_path(data = states_df, aes(x = long, y = lat, group = group), color = 'black', fill = 'gray', size = .2)
 map_projected <- map +  coord_map()
 print(map_projected)
 ```
+**Note:* The country looks small because the Mercartor Projection includes the western-most tip of Alaska in the right hand side of the map, where the Bering Strait is closest to Russia. 
 
+```{r}
+source("poly_coords_function.r")
+## load the shapefile
+sport<- readShapePoly("s_16de14.shp")
+##have a look at the attribute table headings
+names(sport)
+names(sport)<- c("ID", "name", "Partic_Per", "Pop_2001")
+sport_geom<- poly_coords(sport)
+## have a look at the sport_geom object to see its contents
+head(sport_geom)
+##Make the map of % sports participation in London boroughs. We will use the plot function.
+map<- qplot(PolyCoordsY, PolyCoordsX, data=sport_geom, group=Poly_Name , fill= Partic_Per, geom="polygon")
+map
+# The default colours are really nice but we may wish to produce the map in black and white:
+# map + scale_fill_gradient(low="white", high="black")
+```
 
 
