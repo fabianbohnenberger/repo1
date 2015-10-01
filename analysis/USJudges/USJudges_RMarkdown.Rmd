@@ -35,17 +35,19 @@ list.files()
 ```{r, echo=FALSE}
 ## This section is calculating the descriptive values for the table below. 
 
+#RANGE
 rangeINTG <- range(USJudgeRatings$INTG)
 rangePREP <- range(USJudgeRatings$PREP)
 rangeORAL <- range(USJudgeRatings$ORAL)
 rangePHYS <- range(USJudgeRatings$PHYS)
 
+#MEDIAN
 medianINTG <- median(USJudgeRatings$INTG)
 medianPREP <- median(USJudgeRatings$PREP)
 medianORAL <- median(USJudgeRatings$ORAL)
 medianPHYS <- median(USJudgeRatings$PHYS)
 
-
+## table is containing calculations for mean and sd (!) 
 ```
 
 |variable|abbreviation|range|mean|median|standard deviation|
