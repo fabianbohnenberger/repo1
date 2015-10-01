@@ -4,11 +4,8 @@ Fabian Bohnenberger and Sebastian Martinez
 02 October 2015 
 
 
-[Data analysis 1](/analysis/USJudges/USJudges_RMarkdown.Rmd)
+### [Results Data  Analysis 1 - html file](/analysis/USJudges/USJudges_RMarkdown.html)
 
-
-
-#### <a href="repo1/analysis/USJudges/USJudges_RMarkdown.Rmd">Data analysis 1</a>
-
+#### [Data Analysis 1 - RMarkdown file](/analysis/USJudges/USJudges_RMarkdown.Rmd)
 
 
