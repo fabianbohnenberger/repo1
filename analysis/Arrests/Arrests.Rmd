@@ -1,0 +1,77 @@
+---
+title: "Murder and assault in the US"
+author: "Sebastian Martinez"
+date: "October 3, 2015"
+output: html_document
+---
+```{r, include=FALSE}
+library(maptools)
+library(gpclib)
+library(ggplot2)
+library(RColorBrewer)
+library(rgdal)
+library(mapproj)
+setwd("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests")
+```
+
+## Background information
+
+This presentation shows a complementary analysis of crime and the judicial system in the United States of America. The document available in [this document](https://github.com/fabianbohnenberger/repo1/blob/master/analysis/USJudges/USJudges_RMarkdown.pdf) shows the rating of US Supreme Court Justices.
+
+The analysis coming up complements the previous one by the showing the number of arrests for the crimes of murder and assault per 100,000 residents in all States of the country. Further information on the dataset can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). Also included in the information is the percentage of the population that lives in urban areas. 
+
+
+## An overview of Murder rates
+
+```{r, include=TRUE}
+mydata <- USArrests
+Murders <- USArrests$Murder
+hist(Murders, freq=FALSE, main = "Histogram of Arrests of Murders per 100,000 residents")
+curve(dnorm(x, mean=mean(Murders), sd=sd(Murders)), add=TRUE, col="darkblue", lwd=2) 
+```
+This histogram shows the density distribution of murder rates in the US. As reference, the graph for a normal distribution function is added to show the difference between the two. Similarly, a histogram with the distribution of arrests for assaults per 100,000 residents is show up next. Note how the distribution seems to be closer to the _normal_ distribution in comparison. A more in-depth analysis might be needed to check whether this two variables actually behave like draws from a normal distribution with their respective means and standard deviations.
+```{r, include=TRUE}
+Assaults <- USArrests$Assault
+hist(Assaults, freq=FALSE, main = "Histogram of Arrests of Assaults per 100,000 residents")
+curve(dnorm(x, mean=mean(Assaults), sd=sd(Assaults)), add=TRUE, col="darkblue", lwd=2) 
+```
+
+
+More precise information is included in the following table:
+
+|Variable|range|mean|median|standard deviation|
+|--------|------------|-----|----|------|------------------|
+|*Murders* |`r range(Murders)` | `r mean(Murders)` | `r median(Murders)` |`r sd(Murders)`|
+|*Assaults* | `r range(Assaults)` |`r mean(Assaults)`| `r median(Assaults)` |`r sd(Assaults)`|
+
+To continue testing whether the arrests for murders and assaults follow a normal distribution, a qq-plot is added to the analysis. This technique plots the quantiles of both the hypothetical distribution and the real distribution, and compares them in a same graph. 
+
+### Murders
+```{r}
+qqnorm(Murders, main = "Normal Distribution vs Murder Arrests"); qqline(Murders, col=2)
+```
+
+### Assaults
+```{r}
+qqnorm(Assaults, main = "Normal Distribution vs Assault Arrests"); qqline(Assaults, col=2)
+```
+
+The information presented here describes the Arrests for Murder and Assault in each of the 50 States of the United States. It has been shown that both distributions do not follow a normal distribution, suggesting that a more thorough analysis needs to be made if a predictive policing approach wants to be used to forecast the amount of prison cells needed depending on the gravity of the crime. 
+
+
+## Geogrpahical distribution
+As an additional analysis, a map is introduced to show how the arrests are distributed geopraphically through the country. The steps to get to the map are explained in the following sections. 
+
+
+
+## Slide with Map code
+```{r}
+states <- readOGR("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests/", "states")
+states_df <- fortify(states)
+map <- ggplot() + geom_path(data = states_df, aes(x = long, y = lat, group = group), color = 'white', fill = 'gray', size = .2)
+map_projected <- map +  coord_map()
+print(map_projected)
+```
+
+
+
