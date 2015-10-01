@@ -4,7 +4,7 @@ Fabian Bohnenberger and Sebastian Martinez
 02 October 2015 
 
 
-[Data analysis 1](repo1/analysis/USJudges/USJudges_RMarkdown.Rmd)
+[Data analysis 1](/analysis/USJudges/USJudges_RMarkdown.Rmd)
 
 
 
