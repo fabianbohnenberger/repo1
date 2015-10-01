@@ -15,6 +15,9 @@ Additional information on this dataset can be found here: <a href="https://stat.
 
 ### [Results Data  Analysis 1 - html file](/analysis/USJudges/USJudges_RMarkdown.html)
 
+### <a href="https://github.com/fabianbohnenberger/repo1/blob/master/analysis/USJudges/USJudges_RMarkdown.html ">html</a>
+
+
 #### [Data Analysis 1 - RMarkdown file](/analysis/USJudges/USJudges_RMarkdown.Rmd)
 
 
