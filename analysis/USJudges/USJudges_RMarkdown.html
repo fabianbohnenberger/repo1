@@ -104,8 +104,9 @@ img {
 <pre class="r"><code>setwd(&quot;C:/Users/Fabian/Documents/GitHub/repo1/analysis/USJudges&quot;)
 
 list.files()</code></pre>
-<pre><code>## [1] &quot;R_files&quot;                 &quot;test_files&quot;             
-## [3] &quot;USJudges_RMarkdown.html&quot; &quot;USJudges_RMarkdown.Rmd&quot;</code></pre>
+<pre><code>## [1] &quot;R_files&quot;                  &quot;test_files&quot;              
+## [3] &quot;USJudges_RMarkdown.html&quot;  &quot;USJudges_RMarkdown.pdf&quot;  
+## [5] &quot;USJudges_RMarkdown.Rmd&quot;   &quot;USJudges_RMarkdown_files&quot;</code></pre>
 </div>
 <div id="descriptive-statistics" class="section level2">
 <h2>Descriptive Statistics</h2>
@@ -183,20 +184,14 @@ w4 &lt;- 0.25</code></pre>
   x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
 }</code></pre>
 </div>
-<div id="results-for-index" class="section level3">
-<h3>Results for index</h3>
-<pre class="r"><code>weighted_index(1:43) #for all Judges</code></pre>
-<pre><code>##  [1] 7.600 8.300 7.700 8.675 5.675 8.375 8.800 5.550 8.625 8.000 7.650
-## [12] 7.200 7.750 6.650 8.050 7.600 6.925 7.500 7.850 6.525 7.300 6.850
-## [23] 5.775 7.650 8.575 8.900 8.100 8.625 8.175 9.025 7.925 7.775 8.425
-## [34] 8.650 5.850 8.100 7.975 7.975 7.175 7.875 7.000 8.125 7.375</code></pre>
-<pre class="r"><code>#The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.</code></pre>
-</div>
-</div>
-<div id="using-the-index-for-judge-in-row-1" class="section level1">
-<h1>using the Index for Judge in row 1</h1>
-<p>weighted_index(1)</p>
+<div id="results" class="section level3">
+<h3>Results</h3>
+<pre class="r"><code>#weighted_index(1:43) #for all Judges
+
+#The index rating for Judge `r row.names(USJudgeRatings[0,1]` is `r weighted_index(1)`.
+#The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.</code></pre>
 <hr />
+</div>
 </div>
 
 

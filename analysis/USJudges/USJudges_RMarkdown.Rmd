@@ -88,6 +88,7 @@ w4 <- 0.25
 - r identifies the row/Judge in the dataframe
 - x1 = INTG, x2 = PREP, x3 = ORAL, x4 = PHYS
 - w1 = weight for x1, ...
+- Index will be adjusted to display an error message for numbers for r other than integers between 1 and 43 (see r source code)
 ```{r}
 weighted_index <- function(r){
   x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
@@ -104,25 +105,29 @@ weighted_index <- function(r){
     print("Judge does not exist")
   }
 }
-
-
-
-# use source command here 
 ```
 
 
-###Results for index 
+###Results  
 ```{r}
-weighted_index(1:43) #for all Judges
 
 
+
+#weighted_index(1:43) #for all Judges
+
+#The index rating for Judge `r row.names(USJudgeRatings[0,1]` is `r weighted_index(1)`.
 #The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.
 ```
 
 
-#using the Index for Judge in row 1
-weighted_index(1)
+usjudges <- USJudgeRatings
 
+row.names(usjudges)
+
+row.names(usjudges])
+
+
+`r row.names(USJudgeRatings[0,1]`
 
 
 ---
