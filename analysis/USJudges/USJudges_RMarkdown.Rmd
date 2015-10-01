@@ -78,7 +78,6 @@ x4 <- USJudgeRatings$PHYS
 
 ###Defining weights for the Index
 ```{r}
-#defining weights for index
 w1 <- 0.25
 w2 <- 0.25
 w3 <- 0.25
@@ -86,8 +85,9 @@ w4 <- 0.25
 ```
 
 ###Creating function for weighted Index
-- r identifies the row/Judge
+- r identifies the row/Judge in the dataframe
 - x1 = INTG, x2 = PREP, x3 = ORAL, x4 = PHYS
+- w1 = weight for x1, ...
 ```{r}
 weighted_index <- function(r){
   x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
@@ -111,16 +111,18 @@ weighted_index <- function(r){
 ```
 
 
-
+###Results for index 
 ```{r}
-###Results 
+weighted_index(1:43) #for all Judges
+
+
 #The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.
 ```
 
 
 #using the Index for Judge in row 1
 weighted_index(1)
-weighted_index(1:43) #for all Judges
+
 
 
 ---
