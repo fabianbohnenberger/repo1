@@ -3,7 +3,7 @@
 Fabian Bohnenberger and Sebastian Martinez
 02 October 2015 
 
-<a href="repo1/analysis/USJudges/USJudges_RMarkdown">myLib/</a>
+<a href="repo1/analysis/USJudges/USJudges_RMarkdown"></a>
 
 
 
