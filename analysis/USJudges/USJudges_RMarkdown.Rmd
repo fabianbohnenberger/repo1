@@ -8,7 +8,7 @@ output: html_document
 
 ## Aim
 
-The aim of this doccument is to develop a weighted index of Judge's performance based on R's **"USJudgeRatings"** database. The dataset contains lawyers' ratings of State Judges in the US Superior Court. Additional information on the dataset can be found here: <https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USJudgeRatings.html>
+The aim of this document is to develop a weighted index of Judge's performance based on R's **"USJudgeRatings"** database. The dataset contains lawyers' ratings of State Judges in the US Superior Court. Additional information on the dataset can be found here: <https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USJudgeRatings.html>
 
 Data on four variables will be used: 
 
@@ -28,22 +28,43 @@ list.files()
 ```
 
 
-
 ##Descriptive Statistics 
-```{r, echo=FALSE}
 
-source('R_files/USJudges_DescriptiveStats.R')
+### Overview
+
+```{r, echo=FALSE}
+## This section is calculating the descriptive values for the table below. 
+
+rangeINTG <- range(USJudgeRatings$INTG)
+rangePREP <- range(USJudgeRatings$PREP)
+rangeORAL <- range(USJudgeRatings$ORAL)
+rangePHYS <- range(USJudgeRatings$PHYS)
+
+medianINTG <- median(USJudgeRatings$INTG)
+medianPREP <- median(USJudgeRatings$PREP)
+medianORAL <- median(USJudgeRatings$ORAL)
+medianPHYS <- median(USJudgeRatings$PHYS)
 
 
 ```
 
+|variable|abbreviation|range|mean|median|standard deviation|
+|--------|------------|-----|----|------|------------------|
+|*Judicial integrity* |INTG |`r rangeINTG` | `r mean(USJudgeRatings$INTG)` | `r medianINTG` |`r sd(USJudgeRatings$INTG)`|
+|*Preparation for trial* | PREP| `r rangePREP` |`r mean(USJudgeRatings$PREP)`| `r medianPREP` |`r sd(USJudgeRatings$PREP)`|
+|*Sound oral rulings* | ORAL| `r rangeORAL` |`r mean(USJudgeRatings$ORAL)`| `r medianORAL` |`r sd(USJudgeRatings$ORAL)`|
+|*Physical ability* | PHYS|`r rangePHYS` | `r mean(USJudgeRatings$PHYS)`| `r medianPHYS` |`r sd(USJudgeRatings$PHYS)`|
 
 
-judgerating <- USJudgeRatings
+### Histograms 
+```{r, echo=FALSE}
+source('R_files/USJudges_Descriptive_Histograms.R')
+## Histograms are sourced from another file
+```
+
 
 
 ##Creating a weighted index
-
 
 ```{r, echo=FALSE}
 #assigning observations to objects ($ = "component selector") 
@@ -63,7 +84,8 @@ w4 <- 0.25
 ```
 
 ###Creating function for weighted Index
-r identifies the row/Judge
+- r identifies the row/Judge
+- x1 = INTG, x2 = PREP, x3 = ORAL, x4 = PHYS
 ```{r}
 weighted_index <- function(r){
   x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
@@ -86,6 +108,8 @@ weighted_index <- function(r){
 # use source command here 
 ```
 
+
+
 ```{r}
 ###Results 
 #The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.
@@ -97,12 +121,5 @@ weighted_index(1)
 weighted_index(1:43) #for all Judges
 
 
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 ---
 
