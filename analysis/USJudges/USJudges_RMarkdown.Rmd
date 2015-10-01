@@ -77,6 +77,7 @@ x4 <- USJudgeRatings$PHYS
 ```
 
 ###Defining weights for the Index
+At present, weights are applied equally across variables. 
 ```{r}
 w1 <- 0.25
 w2 <- 0.25
@@ -84,11 +85,11 @@ w3 <- 0.25
 w4 <- 0.25
 ```
 
-###Creating function for weighted Index
+###Creating a function for the weighted Index
 - r identifies the row/Judge in the dataframe
 - x1 = INTG, x2 = PREP, x3 = ORAL, x4 = PHYS
 - w1 = weight for x1, ...
-- Index will be adjusted to display an error message for numbers for r other than integers between 1 and 43 (see r source code)
+- Index will be adjusted to display an error message for numbers for r other than integers between 1 and 43 (see Markdown file)
 ```{r}
 weighted_index <- function(r){
   x1[r]*w1+x2[r]*w2+x3[r]*w3+x4[r]*w4
@@ -109,25 +110,24 @@ weighted_index <- function(r){
 
 
 ###Results  
-```{r}
+```{r, echo=FALSE}
+## Retrieves Judges' names (= row labels) and assigns them to object
+usjudges <- USJudgeRatings
+names <- row.names(usjudges)
 
+## Assigns index results to object
+IndexResults <- weighted_index(1:43) # for all Judges (1-43)
 
+##Combines Judges' names and index results into one table
+IndexOutput <- data.frame(names, IndexResults)
 
-#weighted_index(1:43) #for all Judges
-
-#The index rating for Judge `r row.names(USJudgeRatings[0,1]` is `r weighted_index(1)`.
-#The average rating for Judge `r row.names(USJudgeRatings[1,]` is `r weighted_index(1)`.
+IndexOutput
 ```
 
-
-usjudges <- USJudgeRatings
-
-row.names(usjudges)
-
-row.names(usjudges])
-
-
-`r row.names(USJudgeRatings[0,1]`
+The Index mean is `r mean(IndexResults)`. A histogram of the values of the weighted index is displayed below. 
+```{r, echo=FALSE}
+hist(IndexResults)
+```
 
 
 ---
