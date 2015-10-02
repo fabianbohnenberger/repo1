@@ -7,11 +7,12 @@ output: html_document
 ```{r, include=FALSE}
 
 setwd("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests")
+  #("C:/Users/Fabian/Documents/GitHub/repo1/analysis/Arrests")
 
 ## If this file does not run, check/install required r packages. To install the missing packages use the code provided in the r-file: in 'Arrests' folder called 'RpackagesInstall'.
 
 library(maptools)
-library(gpclib)
+library(gpclib) # seems to be not available for Windows computers. Might affect the map creation at the end.  
 library(ggplot2)
 library(RColorBrewer)
 library(rgdal)
@@ -70,6 +71,8 @@ As an additional analysis, a map is introduced to show how the arrests are distr
 ## Creating a Map
 ```{r}
 states <- readOGR("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests/", "states")
+#("C:/Users/Fabian/Documents/GitHub/repo1/analysis/Arrests", "states")
+
 states_df <- fortify(states)
 map <- ggplot() + geom_path(data = states_df, aes(x = long, y = lat, group = group), color = 'black', fill = 'gray', size = .2)
 map_projected <- map +  coord_map()
