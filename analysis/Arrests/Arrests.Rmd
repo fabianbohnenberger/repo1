@@ -5,20 +5,23 @@ date: "October 3, 2015"
 output: html_document
 ---
 ```{r, include=FALSE}
+
+setwd("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests")
+
+## If this file does not run, check/install required r packages. To install the missing packages use the code provided in the r-file: in 'Arrests' folder called 'RpackagesInstall'.
+
 library(maptools)
 library(gpclib)
 library(ggplot2)
 library(RColorBrewer)
 library(rgdal)
 library(mapproj)
-setwd("/Users/SebastianMartinez/Dropbox/0. Hertie/3/Collaborative Social Science Data Analysis/GitHub/repo1/analysis/Arrests")
+
 ```
 
 ## Background information
 
-This presentation shows a complementary analysis of crime and the judicial system in the United States of America. The document available in [this document](https://github.com/fabianbohnenberger/repo1/blob/master/analysis/USJudges/USJudges_RMarkdown.pdf) shows the rating of US Supreme Court Justices.
-
-The analysis coming up complements the previous one by the showing the number of arrests for the crimes of murder and assault per 100,000 residents in all States of the country. Further information on the dataset can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). Also included in the information is the percentage of the population that lives in urban areas. 
+This analysis complements the one on the USJudgesRatings database by showing the number of arrests for the crimes of murder and assault per 100,000 residents in all States of the country. Further information on the dataset can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). Also included in the information is the percentage of the population that lives in urban areas. 
 
 
 ## An overview of Murder rates
@@ -59,7 +62,7 @@ qqnorm(Assaults, main = "Normal Distribution vs Assault Arrests"); qqline(Assaul
 The information presented here describes the Arrests for Murder and Assault in each of the 50 States of the United States. It has been shown that both distributions do not follow a normal distribution, suggesting that a more thorough analysis needs to be made if a predictive policing approach wants to be used to forecast the amount of prison cells needed depending on the gravity of the crime. 
 
 
-## Geogrpahical distribution
+## Geographical distribution
 As an additional analysis, a map is introduced to show how the arrests are distributed geopraphically through the country. The steps to get to the map are explained in the following sections. 
 
 

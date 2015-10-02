@@ -9,7 +9,7 @@ This repository shows a complementary analysis of crime and the judicial system 
 
 ## Analysis of USJudgesRatings
 
-For the *USJudgesRatings* dataset, which contains lawyers' ratings of state judges in the US Superior Court, we develop a weighted index of Judge's individual performance. The document available in [this document](https://github.com/fabianbohnenberger/repo1/blob/master/analysis/USJudges/USJudges_RMarkdown.pdf) shows the rating of US Supreme Court Justices. Additional information on this dataset can be found here: <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USJudgeRatings.html">USJudgesRatings</a>
+For the *USJudgesRatings* dataset, which contains lawyers' ratings of state judges in the US Superior Court, we develop a weighted index of Judge's individual performance. [This pdf document](https://github.com/fabianbohnenberger/repo1/blob/master/analysis/USJudges/USJudges_RMarkdown.pdf) shows the rating of US Supreme Court Justices. Additional information on this dataset can be found here: <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USJudgeRatings.html">USJudgesRatings</a>
 
 #### [Data Analysis 1 - RMarkdown file](/analysis/USJudges/USJudges_RMarkdown.Rmd)
 
