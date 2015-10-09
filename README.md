@@ -13,7 +13,7 @@ For the *USJudgesRatings* dataset, which contains lawyers' ratings of state judg
 
 #### [Data Analysis 1 - RMarkdown file](/analysis/USJudges/USJudges_RMarkdown.Rmd)
 
-[Results Data  Analysis 1 - html file](/analysis/USJudges/USJudges_USJudges_RMarkdown.html)
+[Results Data  Analysis 1 - html file](analysis/USJudges/USJudges_RMarkdown.html)
 
 [Results Data  Analysis 1 - html file -  better](https://rawgit.com/fabianbohnenberger/repo1/master/analysis/USJudges/USJudges_RMarkdown.html)
 
