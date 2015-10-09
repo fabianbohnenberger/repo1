@@ -15,6 +15,9 @@ For the *USJudgesRatings* dataset, which contains lawyers' ratings of state judg
 
 [Results Data  Analysis 1 - html file](/analysis/USJudges/USJudges_USJudges_RMarkdown.html)
 
+[Results Data  Analysis 1 - html file -  better](https://rawgit.com/fabianbohnenberger/repo1/master/analysis/USJudges/USJudges_RMarkdown.html)
+
+
 ## Analysis of USArrests
 
 The second analysis complements the first by showing the number of arrests for the crimes of murder and assault per 100,000 residents in all US States. Further information on the dataset can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). Also included in the information is the percentage of the population that lives in urban areas. 
